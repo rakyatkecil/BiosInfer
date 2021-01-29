@@ -1,0 +1,6 @@
+book_filename: "biostatistika-inferensial"
+output_dir: "docs"
+language:
+  ui:
+    chapter_name: "Bagian "
+delete_merged_file: true
