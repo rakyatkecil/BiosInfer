@@ -1,3 +1,28 @@
+--- 
+title: "Biostatistika Inferensial"
+author: "dimas & ulya"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+---
+
+# Pengantar
+
+Modul ini dibuat sebagai bahan ajar pada mata kuliah Biostatistika Inferensial Fakultas Kesehatan Masyarakat Universitas Jember. Pada buku ini akan membahas beberapa topik perkuliahan yaitu:
+
+- Uji 2 sampel independen
+- Uji 2 sampel berpasangan
+- Uji Anova
+- Uji Korelasi
+- Uji Regresi Linier
+
+<!--chapter:end:index.Rmd-->
+
 ```{r setup, include=FALSE, echo=FALSE}
 library(pander)
 panderOptions('knitr.auto.asis', FALSE)
@@ -480,4 +505,41 @@ Nilai $z_{hitung}$ lebih besar dari nilai kritis ($-1.96<-0.3402$), maka keputus
 
 
 
+
+
+<!--chapter:end:01-intro.Rmd-->
+
+# Uji 2 Sampel Berpasangan
+
+Here is a review of existing methods.
+
+<!--chapter:end:02-literature.Rmd-->
+
+# Uji Anova
+
+We describe our methods in this chapter.
+
+<!--chapter:end:03-method.Rmd-->
+
+# Uji Korelasi
+
+Some _significant_ applications are demonstrated in this chapter.
+
+## Example one
+
+## Example two
+
+<!--chapter:end:04-application.Rmd-->
+
+# Final Words
+
+We have finished a nice book.
+
+<!--chapter:end:05-summary.Rmd-->
+
+`r if (knitr:::is_html_output()) '
+# References {-}
+'`
+
+<!--chapter:end:06-references.Rmd-->
 
