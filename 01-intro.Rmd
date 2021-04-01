@@ -3,23 +3,23 @@ library(pander)
 panderOptions('knitr.auto.asis', FALSE)
 ```
 
-# Uji 2 Sampel Independen {#uji2sampelind}
+# Uji 2 Sampel Saling Bebas {#uji2sampelind}
 
 ## Tujuan
 
 - Mahasiswa mampu memahami konsep dasar pengujian 2 sampel independen
-- Mahasiswa mampu melakukan melakukan pengujian 2 sampel independen secara manual
-- Mahasiswa mampu melakukan melakukan pengujian 2 sampel independen menggunakan aplikasi pengolah data
+- Mahasiswa mampu melakukan pengujian 2 sampel independen secara manual
+- Mahasiswa mampu melakukan pengujian 2 sampel independen menggunakan aplikasi pengolah data SPSS dan R
 
 
 ## Dasar Teori
-Terkadang kita ingin mengetahui apakah sebuah kelompok data (sampel data) memiliki nilai rata-rata yang sama dengan kelompok data yang lain. Tentu kata "sama" dalam hal ini tidak memiliki arti sama persis sebab hal ini sangat jarang terjadi. Akan selalu ada kesalahan yang dapat ditolernasi di setiap pengujian.
+Terkadang kita ingin mengetahui apakah sebuah kelompok data (sampel data) memiliki nilai rata-rata yang sama dengan kelompok data yang lain. Tentu kata "sama" dalam hal ini tidak memiliki arti sama persis sebab hal ini sangat jarang terjadi. Akan selalu ada kesalahan yang dapat ditolernasi disetiap pengujian.
 
 Andaikan dari 10 sampel mahasiswa laki-laki diperoleh rata-rata tinggi badan = 168,5 dan dari 10 sampel mahasiswa perempuan diperoleh tinggi badan = 167,2. Apakah dapat disimpulkan bahwa tinggi badan mahasiswa laki-laki = tinggi badan mahasiswa perempuan? Jika "ya", maka apa dasar pengambilan kesimpulan tersebut?
 
-Uji 2 sampel independen merupakan uji statistik yang digunakan untuk menguji nilai rata-rata dari 2 kelompok/sampel/populasi yang saling bebas. Terdapat 2 pengujian yang dapat dilakukan pada kasus ini, yang pertama adalah Uji t 2 Sampel Independen (parametrik) dan Uji Mann Whitney (non-parametrik).
+Uji 2 sampel independen merupakan uji statistik yang digunakan untuk menguji nilai rata-rata dari 2 kelompok/sampel/populasi yang saling bebas. Terdapat 2 pengujian yang dapat dilakukan pada kasus ini, yang pertama adalah pengujian dengan mengganakan metode statistik parametrik yaitu Uji t 2 Sampel Independen dan pengujian dengan mengganakan metode statistik non-parametrik yaitu Uji Mann Whitney.
 
-Berikut ini adalah contoh kasus 2 sampel independen (yang saling bebas):
+Berikut ini adalah contoh kasus 2 sampel independen:
 
 - Kepala Dinas Kesehatan ingin menguji apakah ada perbedaan jumlah kunjungan pada puskesmas yang berada di daerah perkotaan dan daerah pedesaan.
 - Seorang peneliti menduga bahwa terdapat perbedaan kandungan gizi antara roti tawar yang biasa dengan roti tawar yang telah ditambahkan dengan tepung kelor.

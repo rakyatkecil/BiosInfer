@@ -1,3 +1,251 @@
 # Uji 2 Sampel Berpasangan
 
-Here is a review of existing methods.
+
+## Tujuan
+
+- Mahasiswa mampu memahami konsep dasar pengujian 2 sampel independen
+- Mahasiswa mampu melakukan pengujian 2 sampel independen secara manual
+- Mahasiswa mampu melakukan pengujian 2 sampel independen menggunakan aplikasi pengolah data SPSS dan R
+
+
+## Dasar Teori
+sebelumnya telah kita bahas tentang pengujian pada data yang saling bebas. Namun terkadang peneliti ini mengetahui apakah terdapat perbedaan hasil pada pada data setelah mendapatkan perlakuan tertentu. Peneliti akan mencatat/mengukur kondisi objek sebelum dan setelah mendapatkan perlakukan. Sehingga kini peneliti memiliki 2 kelompok data yaitu data sebelum dan setelah perlakuan. Data jenis ini lebih sering disebut dengan sampel berpasangan (_paired/matched samples_). Terkadang pada rujukan lain kita akan menemukan istilah yang berbeda, seperti _dependent samples_ [@allan18]. 
+
+Berikut ini adalah contoh kasus 2 sampel berpasangan:
+
+- Seorang guru ingin mengatahui apakah terdapat peningkatan nilai matematika siswa kelas X apabila mendapatkan pembelajaran dengan menggunakan media video.
+- Seorang peneliti ingin menguji apakah terdapat penurunan tekanan darah pada wanita lanjut usia (lansia) apabila tidak mengkonsumsi makanan yang mengandung penyedap rasa dalam waktu 2 minggu.
+- Kelapa Program Studi Ilmu Gizi FKM XX melakukan penelitian terhadap daya terima konsumen pada cilok yang telah mendapatkan tembahan tepung teri dalam proses pembuatannya. Pertama-tama kaprodi memberikan cilok yang biasa dijual kepada panelis, lalu setelah itu panelis membersikan mulutnya dan mencoba cilok yang telah dimodifikasi. Selanjutnya akan dilakukan pengujuan terhadap hasil pendataan tersebut. 
+
+### Hipotesis Pengujian
+Uji t 2 sampel berpasangan memiliki cara yang berbeda dalam melakukan pengujian. Pengujian ini akan membandingkan hasil rata-rata selisih (disimbolkan dengan $\bar{D}$) dari data sebelum dan setelah dengan nilai t tabel. Terdapat 3 hipotesis yang dapat digunakan, yaitu:
+
+**Hipotesis Satu Arah Kanan**  
+Hipotesis ini digunakan untuk menguji apakah besar rata-rata selisih dari sampel yang berpasangan lebih dari 0. 
+Hipotesis ditulis sebagai berikut:  
+$H_0 : \mu_D = 0$  
+$H_1 : \mu_D > 0$  
+
+Dengan $\mu_D$ adalah simbol untuk ekspetasi rata-rata dari selisih sampel berpasangan. Daerah penolakan dan penerimaan $H_0$ pada $\alpha = 5\%$ dan $df = 10000$ dapat dilihat pada gambar berikut:
+```{r, echo=F}
+mu    <- 0                            # mean
+sd    <- 1                            # standard deviation
+alpha <- 0.05                              # i.e., 95% confidence interval
+
+# Full normal distribution
+x <- seq(mu-3*sd, mu+3*sd, len=25)
+y <- dnorm(x, mean=mu, sd=sd)
+
+# Use quantile function to compute the confidence interval (CI)
+lo <- qnorm(0.05,   mean=mu, sd=sd)  # lower CI bound
+hi <- qnorm(1-0.05, mean=mu, sd=sd)  # upper CI bound
+# start with an empty plot
+```
+
+```{r, echo=F, fig.show="hold", out.width = "75%", out.height= "75%", fig.align = 'center'}
+plot(NULL,NULL, type='n', xlim=range(x), ylim=range(y),
+     frame.plot = F, ylab = "Probability density")
+
+xci <- seq(max(x), hi, len=1000)             # background: confidence interval 95%
+yci <- dnorm(xci, mean=mu, sd=sd)
+xx <- c(xci, rev(xci))
+yy <- c(0*yci, rev(yci))
+polygon(xx,yy,col="#ffa1a7", border=NA)
+
+lines(x,y, col="black", lwd=2)              # Foreground: complete distribution
+
+# Annotation and decoration
+lines(c(mu,mu), c(0,dnorm(mu,mean=mu,sd=sd)), lty="dashed", lwd=0.5) # mean
+abline(h=0, lwd=0.5) # proper y=0 line
+text(mean(x), mean(y), sprintf("Daerah penerimaan H0", 100*(1-alpha)))
+text(mean(x), mean(y)-0.03, sprintf("Taraf kepercayaan %.0f%%", 100*(1-alpha)))
+
+lines(c(hi,hi), c(0.001,0.3), lwd=2)
+points(hi, y=0, pch = 16, col="red")
+text(hi, 0.32, sprintf("Titik kritis = %.3f", hi))
+
+lines(c(2,2.3), c(0.03,0.1), lwd=2) # mu - s.d.
+text(2.3, 0.12, sprintf("Penolakan H0", lo))
+text(2.3, 0.145, sprintf("Daerah", lo))
+```
+
+Penolakan $H_0$ dilakukan apabila nilai $t_{hitung}$ berada pada daerah penolakan H0 ($t_{hitung}$ > nilai kritis $1.645$).
+
+
+**Hipotesis Satu Arah Kiri**  
+Hipotesis ini digunakan untuk menguji apakah besar rata-rata selisih dari sampel yang berpasangan kurang dari 0. 
+Hipotesis ditulis sebagai berikut:  
+$H_0 : \mu_D = 0$  
+$H_1 : \mu_D < 0$  
+
+Daerah penolakan dan penerimaan $H_0$ pada $\alpha = 5\%$ dan $df = 10000$ dapat dilihat pada gambar berikut:
+```{r, echo=F}
+mu    <- 0                            # mean
+sd    <- 1                            # standard deviation
+alpha <- 0.05                              # i.e., 95% confidence interval
+
+# Full normal distribution
+x <- seq(mu-3*sd, mu+3*sd, len=25)
+y <- dnorm(x, mean=mu, sd=sd)
+
+# Use quantile function to compute the confidence interval (CI)
+lo <- qnorm(0.05,   mean=mu, sd=sd)  # lower CI bound
+hi <- qnorm(1-0.05, mean=mu, sd=sd)  # upper CI bound
+# start with an empty plot
+```
+
+```{r, echo=F, fig.show="hold", out.width = "75%", out.height= "75%", fig.align = 'center'}
+plot(NULL,NULL, type='n', xlim=range(x), ylim=range(y),
+     frame.plot = F, ylab = "Probability density")
+
+xci <- seq(min(x), lo, len=1000)             # background: confidence interval 95%
+yci <- dnorm(xci, mean=mu, sd=sd)
+xx <- c(xci, rev(xci))
+yy <- c(0*yci, rev(yci))
+polygon(xx,yy,col="#ffa1a7", border=NA)
+
+lines(x,y, col="black", lwd=2)              # Foreground: complete distribution
+
+# Annotation and decoration
+lines(c(mu,mu), c(0,dnorm(mu,mean=mu,sd=sd)), lty="dashed", lwd=0.5) # mean
+abline(h=0, lwd=0.5) # proper y=0 line
+text(mean(x), mean(y), sprintf("Daerah penerimaan H0", 100*(1-alpha)))
+text(mean(x), mean(y)-0.03, sprintf("Taraf kepercayaan %.0f%%", 100*(1-alpha)))
+
+lines(c(lo,lo), c(0.001,0.3), lwd=2)
+points(lo, y=0, pch = 16, col="red")
+text(lo, 0.32, sprintf("Titik kritis = %.3f", lo))
+
+lines(c(-2,-2.3), c(0.03,0.1), lwd=2) # mu - s.d.
+text(-2.3, 0.12, sprintf("Penolakan H0", lo))
+text(-2.3, 0.145, sprintf("Daerah", lo))
+```
+
+Penolakan $H_0$ dilakukan apabila nilai $t_{hitung}$ berada pada daerah penolakan H0 ($t_{hitung}$ < nilai kritis $-1.645$).
+
+
+**Hipotesis Dua Arah Kanan**  
+Hipotesis ini digunakan untuk menguji apakah terdapat perbedaan rata-rata dari kelompok data yang berpasangan. 
+Hipotesis ditulis sebagai berikut:  
+$H_0 : \mu_D = 0$  
+$H_1 : \mu_D \neq 0$  
+ 
+Daerah penolakan dan penerimaan $H_0$ pada $\alpha = 5\%$ dan $df = 10000$ dapat dilihat pada gambar berikut:
+```{r, echo=F}
+mu    <- 0                            # mean
+sd    <- 1                            # standard deviation
+alpha <- 0.05                              # i.e., 95% confidence interval
+
+# Full normal distribution
+x <- seq(mu-3*sd, mu+3*sd, len=25)
+y <- dnorm(x, mean=mu, sd=sd)
+
+# Use quantile function to compute the confidence interval (CI)
+lo <- qnorm(0.05/2,   mean=mu, sd=sd)  # lower CI bound
+hi <- qnorm(1-0.05/2, mean=mu, sd=sd)  # upper CI bound
+# start with an empty plot
+```
+
+```{r, echo=F, fig.show="hold", out.width = "75%", out.height= "75%", fig.align = 'center'}
+plot(NULL,NULL, type='n', xlim=range(x), ylim=range(y),
+     frame.plot = F, ylab = "Probability density")
+
+xci <- seq(min(x), lo, len=1000)             # background: confidence interval 95%
+yci <- dnorm(xci, mean=mu, sd=sd)
+xx <- c(xci, rev(xci))
+yy <- c(0*yci, rev(yci))
+polygon(xx,yy,col="#ffa1a7", border=NA)
+
+xci <- seq(hi, max(x), len=1000)             # background: confidence interval 95%
+yci <- dnorm(xci, mean=mu, sd=sd)
+xx <- c(xci, rev(xci))
+yy <- c(0*yci, rev(yci))
+polygon(xx,yy,col="#ffa1a7", border=NA)
+
+
+lines(x,y, col="black", lwd=2)              # Foreground: complete distribution
+
+# Annotation and decoration
+lines(c(mu,mu), c(0,dnorm(mu,mean=mu,sd=sd)), lty="dashed", lwd=0.5) # mean
+abline(h=0, lwd=0.5) # proper y=0 line
+text(mean(x), mean(y), sprintf("Daerah penerimaan H0", 100*(1-alpha)))
+text(mean(x), mean(y)-0.03, sprintf("Taraf kepercayaan %.0f%%", 100*(1-alpha)))
+
+lines(c(lo,lo), c(0.001,0.2), lwd=2)
+points(lo, y=0, pch = 16, col="red")
+text(lo, 0.21, sprintf("Titik kritis = %.3f", lo))
+
+lines(c(-2.3,-2.6), c(0.01,0.1), lwd=2) # mu - s.d.
+text(-2.6, 0.11, sprintf("Penolakan H0", lo))
+text(-2.6, 0.13, sprintf("Daerah", lo))
+
+lines(c(hi,hi), c(0.001,0.2), lwd=2)
+points(hi, y=0, pch = 16, col="red")
+text(hi, 0.21, sprintf("Titik kritis = %.3f", hi))
+
+lines(c(2.3,2.6), c(0.01,0.1), lwd=2) # mu - s.d.
+text(2.6, 0.11, sprintf("Penolakan H0", lo))
+text(2.6, 0.13, sprintf("Daerah", lo))
+```
+
+Penolakan $H_0$ dilakukan apabila nilai $t_{hitung}$ berada pada daerah penolakan H0 ($t_{hitung}$ < nilai kritis $-1.960$ bila $t_{hitung}$ negatif atau $t_{hitung}$ > nilai kritis $1.960$ bila $t_{hitung}$ positif).
+
+### Uji t 2 Sampel Independen
+Layaknya pengujian parametrik lainnya, uji t 2 sampel berpasangan juga memiliki beberapa asumsi yang harus dipenuhi. Asumsi-asumsi tersebut ialah:
+
+- Sampel diambil secara acak
+- Sampel independen
+- Bila ukuran sampel kurang dari 30, maka sampel harus berasal dari populasi yang berdistribusi normal
+
+Formula untuk melakukan uji 2 sampel berpasangan adalah sebagai berikut:
+
+$$
+t=\frac{\bar{D}-\mu_D}{s_D / \sqrt{n}}
+$$
+dengan
+$$
+\bar{D}=\frac{\sum{D}}{n} \quad\text{and}\quad s_D=\sqrt{\frac{n\sum{D^2}-(\sum{D})^2}{n(n-1)}}
+$$
+dimana:
+
+- $n=$ jumlah data
+- derajat kebebasan sama dengan $n-1$
+- $\bar{D}=$ selisih data sebelum dan setelah
+- $s_D=$ standar deviasi selisih data sebelum dan setelah
+
+#### Contoh
+Berikut adalah contoh-contoh pengujian dengan menggunakan Uji t 2 Sampel Berpasangan
+
+##### Kasus 1
+Diketahui bahwa dalam 8 kali percobaan, rata-rata Ani dapat mengetik sebanyak 105 kata dengan standar deviasi 7 kata dalam waktu 1 menit. Dengan jumlah percobaan yang sama dengan Ani, Rudi dapat mengetik dengan rata-rata 115 kata dengan standar deviasi 10 dalam waktu 1 menit. Dengan menggunakan $\alpha$ sebesar 5%, apakah dapat disimpulkan bahwa Rudi dapat mengetik lebih cepat daripada Ani? Varians antar kelompok diasumsikan homogen.
+
+**Jawab**  
+```{r, tidy=FALSE, echo=F}
+anru = data.frame(Statistik = c("n", "rata-rata", "standar deviasi"),
+                  Ani = c(8, 105, 7),
+                  Rudi = c(8,115,10))
+knitr::kable(
+  anru, align = "c", caption = 'Deskriptif Kemampuan Mengetik Anis dan Rudi',
+  booktabs = TRUE
+)
+```
+
+_Langkah-langkah pengerjaan_
+
+1. Tentukan hipotesis pengujian:  
+$H_0 : \mu_1 \leq \mu_2$  
+$H_1 : \mu_1 > \mu_2$  
+dimana $\mu_1$ adalah rata-rata mengetik Rudi (populasi) dan $\mu_2$ adalah rata-rata mengetik Ani (populasi)
+2. Hitung derajat kebebasan $dk = n - 1 = 8 - 1 = 7$.
+3. Tentukan nilai $t_{tabel}$ dengan $\alpha=0.05$ dan $dk = 7$, sehingga $t_{(0.05,7)} = 1,8946$.
+4. Hitung nilai $t_{hitung}$ dengan menganggap bahwa $\mu_1-\mu_2 = 0$, maka:  
+$$
+t_{hitung} = \frac{(\bar{X_1}-\bar{X_2})}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}
+$$
+$$
+t_{hitung} = \frac{(115-105)}{\sqrt{\frac{10^2}{8}+\frac{7^2}{8}}} = 2,32
+$$
+5. Bandingkan $t_{hitung}$ dengan $t_{tabel}$ ($2,32 > 1,8946$).
+6. Pengambilan keputusan: Tolak $H_0$ (karena $t_{hitung}$ lebih besar dari $t_{tabel}$).
+
+Sehingga dapat disimpulkan bahwa dengan menggunakan $\alpha = 5\%$ Rudi mengetik lebih cepat daripada Ani.
