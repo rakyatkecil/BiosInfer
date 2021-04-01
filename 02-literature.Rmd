@@ -248,10 +248,16 @@ $H_1 : \mu_D \neq 0$
 2. Hitung derajat kebebasan $dk = n - 1 = 10 - 1 = 9$.
 3. Tentukan nilai $t_{tabel}$ dengan $\alpha=0,05/2=0,025$ dan $dk = 9$, sehingga $t_{(0.025,9)} = -2,2622$ atau $t_{(0.975,9)} = 2,2622$.
 4. Membuat tabel yang dapat digunakan untuk membantu perhitungan (Tabel 3.2).
-5. Hitung nilai $\bar{D}$ dan $s_D$
+5. Hitung nilai $\bar{D}$
 $$
 \bar{D}=\frac{\sum{D}}{n}=\frac{42+25+33+51+55+34+25+12+6+31}{10}=31,4
 $$
+5. Hitung nilai $s_D$
+$$
+s_D=\sqrt{\frac{n\sum{D^2}-(\sum{D})^2}{n(n-1)}}
+$$
+
+
 $$
 n\sum{D}=10 \times 314=3140
 $$

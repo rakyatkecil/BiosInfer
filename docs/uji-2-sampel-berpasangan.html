@@ -314,22 +314,34 @@ Kita memerlukan nilai <span class="math inline">\(\bar{D}\)</span> dan <span cla
 <p><em>Langkah-langkah pengerjaan</em></p>
 <ol style="list-style-type: decimal">
 <li>Tentukan hipotesis pengujian:<br />
-<span class="math inline">\(H_0 : \mu_1 = \mu_2\)</span><br />
-<span class="math inline">\(H_1 : \mu_1 \neq \mu_2\)</span><br />
-dimana <span class="math inline">\(\mu_1\)</span> adalah rata-rata penurunan berat badan wanita di kota (populasi) dan <span class="math inline">\(\mu_2\)</span> adalah rata-rata penurunan berat badan wanita di desa (populasi)</li>
+<span class="math inline">\(H_0 : \mu_D = 0\)</span><br />
+<span class="math inline">\(H_1 : \mu_D \neq 0\)</span><br />
+</li>
 <li>Hitung derajat kebebasan <span class="math inline">\(dk = n - 1 = 10 - 1 = 9\)</span>.</li>
-<li>Tentukan nilai <span class="math inline">\(t_{tabel}\)</span> dengan <span class="math inline">\(\alpha=0.05/2=0.025\)</span> dan <span class="math inline">\(dk = 9\)</span>, sehingga <span class="math inline">\(t_{(0.025,9)} = -2,2622\)</span> atau <span class="math inline">\(t_{(0.975,9)} = 2,2622\)</span>.</li>
-<li>Hitung nilai <span class="math inline">\(t_{hitung}\)</span> dengan menganggap bahwa <span class="math inline">\(\mu_1-\mu_2 = 0\)</span>, maka:<br />
+<li>Tentukan nilai <span class="math inline">\(t_{tabel}\)</span> dengan <span class="math inline">\(\alpha=0,05/2=0,025\)</span> dan <span class="math inline">\(dk = 9\)</span>, sehingga <span class="math inline">\(t_{(0.025,9)} = -2,2622\)</span> atau <span class="math inline">\(t_{(0.975,9)} = 2,2622\)</span>.</li>
+<li>Membuat tabel yang dapat digunakan untuk membantu perhitungan (Tabel 3.2).</li>
+<li>Hitung nilai <span class="math inline">\(\bar{D}\)</span>
 <span class="math display">\[
-t_{hitung} = \frac{(\bar{X_1}-\bar{X_2})}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}
-\]</span>
-<span class="math display">\[
-t_{hitung} = \frac{(3.4-5.6)}{\sqrt{\frac{1.07^2}{10}+\frac{0.7^2}{10}}} = -5.44
+\bar{D}=\frac{\sum{D}}{n}=\frac{42+25+33+51+55+34+25+12+6+31}{10}=31,4
 \]</span></li>
-<li>Bandingkan <span class="math inline">\(t_{hitung}\)</span> dengan <span class="math inline">\(t_{tabel}\)</span> (karena <span class="math inline">\(t_{hitung}\)</span> negatif, maka bandingkan dengan nilai <span class="math inline">\(t_{tabel}\)</span> yang negatif juga, <span class="math inline">\(-5,44&lt;-2,2622\)</span>).</li>
-<li>Pengambilan keputusan: Tolak <span class="math inline">\(H_0\)</span> (karena <span class="math inline">\(t_{hitung}\)</span> lebih kecil dari <span class="math inline">\(t_{tabel}\)</span>).</li>
+<li>Hitung nilai <span class="math inline">\(s_D\)</span>
+<span class="math display">\[
+s_D=\sqrt{\frac{n\sum{D^2}-(\sum{D})^2}{n(n-1)}}
+\]</span></li>
 </ol>
-<p>Sehingga dapat disimpulkan bahwa dengan menggunakan <span class="math inline">\(\alpha = 5\%\)</span> terdapat perbedaan penurunan berat badan pada wanita yang melakukan diet dengan menggunakan Metode Diet A di pedesaan dan perkotaan.</p>
+<p><span class="math display">\[
+n\sum{D}=10 \times 314=3140
+\]</span></p>
+<p><span class="math display">\[
+s_D=\sqrt{\frac{n\sum{D^2}-(\sum{D})^2}{n(n-1)}}=\sqrt{\frac{120260-98596}{10 \times (10-1)}}=15,51487
+\]</span>
+6. Hitung nilai <span class="math inline">\(t_{hitung}\)</span><br />
+<span class="math display">\[
+t=\frac{\bar{D}-\mu_D}{s_D / \sqrt{n}}=\frac{31,4}{15,51487 / \sqrt{10}}=6,40
+\]</span>
+7. Bandingkan <span class="math inline">\(t_{hitung}\)</span> dengan <span class="math inline">\(t_{tabel}\)</span> (karena <span class="math inline">\(t_{hitung}\)</span> positif, maka bandingkan dengan nilai <span class="math inline">\(t_{tabel}\)</span> yang postifi juga, <span class="math inline">\(6,40&gt;2,2622\)</span>).
+6. Pengambilan keputusan: Tolak <span class="math inline">\(H_0\)</span> (karena <span class="math inline">\(t_{hitung}\)</span> lebih kecil dari <span class="math inline">\(t_{tabel}\)</span>).</p>
+<p>Sehingga dapat disimpulkan bahwa dengan menggunakan <span class="math inline">\(\alpha = 5\%\)</span> terdapat perbedaan kadar kolesterol setelah secara rutin mengkonsumsi habatus sauda selama 2 minggu.</p>
 
 </div>
 </div>
