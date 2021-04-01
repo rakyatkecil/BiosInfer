@@ -214,18 +214,28 @@ dimana:
 - $s_D=$ standar deviasi selisih data sebelum dan setelah
 
 #### Contoh
-Berikut adalah contoh-contoh pengujian dengan menggunakan Uji t 2 Sampel Berpasangan
+Seorang peniliti ingin menguji apakah terdapat penurunan kadar kolesterol pada pasien penderita diabetes apabila rutin mengkonsumsi habatus sauda setiap pagi selama 2 minggu. Peneliti menggunakan 10 pasien secara acak dan mengukur kadar kolesterolnya. Setelah 2 minggu kemudian peneliti melakukan pengukuran ulang. Berikut adalah data yang didapat: 
+```{r, echo=F}
+set.seed(31)
+sebelum = abs(round(rnorm(10,200,10),0))
+setelah = abs(round(rnorm(10,180,20),0))
 
-##### Kasus 1
-Diketahui bahwa dalam 8 kali percobaan, rata-rata Ani dapat mengetik sebanyak 105 kata dengan standar deviasi 7 kata dalam waktu 1 menit. Dengan jumlah percobaan yang sama dengan Ani, Rudi dapat mengetik dengan rata-rata 115 kata dengan standar deviasi 10 dalam waktu 1 menit. Dengan menggunakan $\alpha$ sebesar 5%, apakah dapat disimpulkan bahwa Rudi dapat mengetik lebih cepat daripada Ani? Varians antar kelompok diasumsikan homogen.
+datass = t(data.frame(sebelum, setelah))
+colnames(datass) = c(1:10)
+
+knitr::kable(datass, align = "c",
+             caption = "Data Kadar Kolesterol Pasien", booktabs = T)
+```
+Dengan menggunakan $\alpha$ = 5%, tentukan apakah ada perbedaan penurunan kadar kolesterol setelah rutin mengkonsumsi habatus sauda setiap pagi selama 2 minggu?
 
 **Jawab**  
+Kita memerlukan nilai $\bar{D}$ dan $s_D$ untuk dapat menghitung nilai $t_hitung$. Sedangkan dalam perhitungan $s_D$ kita memerlukan kuadrat dari jumlah semua selisih ($(\sum{D})^2$). Semua nilai tersebut dapat kita kerjakan sekaligus dengan menggunakan 1 tabel berikut:
 ```{r, tidy=FALSE, echo=F}
-anru = data.frame(Statistik = c("n", "rata-rata", "standar deviasi"),
-                  Ani = c(8, 105, 7),
-                  Rudi = c(8,115,10))
+D = sebelum-setelah
+D2 = D^2
+datassdd = rbind(datass,D,D2)
 knitr::kable(
-  anru, align = "c", caption = 'Deskriptif Kemampuan Mengetik Anis dan Rudi',
+  datassdd, align = "c", caption = 'Selisih dan Kuadrat Selisih Data Sebelum dan Setelah 2 Minggu',
   booktabs = TRUE
 )
 ```
@@ -233,19 +243,27 @@ knitr::kable(
 _Langkah-langkah pengerjaan_
 
 1. Tentukan hipotesis pengujian:  
-$H_0 : \mu_1 \leq \mu_2$  
-$H_1 : \mu_1 > \mu_2$  
-dimana $\mu_1$ adalah rata-rata mengetik Rudi (populasi) dan $\mu_2$ adalah rata-rata mengetik Ani (populasi)
-2. Hitung derajat kebebasan $dk = n - 1 = 8 - 1 = 7$.
-3. Tentukan nilai $t_{tabel}$ dengan $\alpha=0.05$ dan $dk = 7$, sehingga $t_{(0.05,7)} = 1,8946$.
-4. Hitung nilai $t_{hitung}$ dengan menganggap bahwa $\mu_1-\mu_2 = 0$, maka:  
+$H_0 : \mu_D = 0$  
+$H_1 : \mu_D \neq 0$  
+2. Hitung derajat kebebasan $dk = n - 1 = 10 - 1 = 9$.
+3. Tentukan nilai $t_{tabel}$ dengan $\alpha=0,05/2=0,025$ dan $dk = 9$, sehingga $t_{(0.025,9)} = -2,2622$ atau $t_{(0.975,9)} = 2,2622$.
+4. Membuat tabel yang dapat digunakan untuk membantu perhitungan (Tabel 3.2).
+5. Hitung nilai $\bar{D}$ dan $s_D$
 $$
-t_{hitung} = \frac{(\bar{X_1}-\bar{X_2})}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}
+\bar{D}=\frac{\sum{D}}{n}=\frac{42+25+33+51+55+34+25+12+6+31}{10}=31,4
 $$
 $$
-t_{hitung} = \frac{(115-105)}{\sqrt{\frac{10^2}{8}+\frac{7^2}{8}}} = 2,32
+n\sum{D}=10 \times 314=3140
 $$
-5. Bandingkan $t_{hitung}$ dengan $t_{tabel}$ ($2,32 > 1,8946$).
-6. Pengambilan keputusan: Tolak $H_0$ (karena $t_{hitung}$ lebih besar dari $t_{tabel}$).
 
-Sehingga dapat disimpulkan bahwa dengan menggunakan $\alpha = 5\%$ Rudi mengetik lebih cepat daripada Ani.
+$$
+s_D=\sqrt{\frac{n\sum{D^2}-(\sum{D})^2}{n(n-1)}}=\sqrt{\frac{120260-98596}{10 \times (10-1)}}=15,51487
+$$
+6. Hitung nilai $t_{hitung}$  
+$$
+t=\frac{\bar{D}-\mu_D}{s_D / \sqrt{n}}=\frac{31,4}{15,51487 / \sqrt{10}}=6,40
+$$
+7. Bandingkan $t_{hitung}$ dengan $t_{tabel}$ (karena $t_{hitung}$ positif, maka bandingkan dengan nilai $t_{tabel}$ yang postifi juga, $6,40>2,2622$).
+6. Pengambilan keputusan: Tolak $H_0$ (karena $t_{hitung}$ lebih kecil dari $t_{tabel}$).
+
+Sehingga dapat disimpulkan bahwa dengan menggunakan $\alpha = 5\%$ terdapat perbedaan kadar kolesterol setelah secara rutin mengkonsumsi habatus sauda selama 2 minggu.

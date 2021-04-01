@@ -187,7 +187,151 @@ dimana:</p>
 <li><span class="math inline">\(\bar{D}=\)</span> selisih data sebelum dan setelah</li>
 <li><span class="math inline">\(s_D=\)</span> standar deviasi selisih data sebelum dan setelah</li>
 </ul>
+<div id="contoh-1" class="section level4">
+<h4><span class="header-section-number">3.2.2.1</span> Contoh</h4>
+<p>Seorang peniliti ingin menguji apakah terdapat penurunan kadar kolesterol pada pasien penderita diabetes apabila rutin mengkonsumsi habatus sauda setiap pagi selama 2 minggu. Peneliti menggunakan 10 pasien secara acak dan mengukur kadar kolesterolnya. Setelah 2 minggu kemudian peneliti melakukan pengukuran ulang. Berikut adalah data yang didapat:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-21">Table 3.1: </span>Data Kadar Kolesterol Pasien</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">7</th>
+<th align="center">8</th>
+<th align="center">9</th>
+<th align="center">10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">sebelum</td>
+<td align="center">201</td>
+<td align="center">198</td>
+<td align="center">216</td>
+<td align="center">210</td>
+<td align="center">215</td>
+<td align="center">196</td>
+<td align="center">204</td>
+<td align="center">209</td>
+<td align="center">187</td>
+<td align="center">193</td>
+</tr>
+<tr class="even">
+<td align="left">setelah</td>
+<td align="center">159</td>
+<td align="center">173</td>
+<td align="center">183</td>
+<td align="center">159</td>
+<td align="center">160</td>
+<td align="center">162</td>
+<td align="center">179</td>
+<td align="center">197</td>
+<td align="center">181</td>
+<td align="center">162</td>
+</tr>
+</tbody>
+</table>
+<p>Dengan menggunakan <span class="math inline">\(\alpha\)</span> = 5%, tentukan apakah ada perbedaan penurunan kadar kolesterol setelah rutin mengkonsumsi habatus sauda setiap pagi selama 2 minggu?</p>
+<p><strong>Jawab</strong><br />
+Kita memerlukan nilai <span class="math inline">\(\bar{D}\)</span> dan <span class="math inline">\(s_D\)</span> untuk dapat menghitung nilai <span class="math inline">\(t_hitung\)</span>. Sedangkan dalam perhitungan <span class="math inline">\(s_D\)</span> kita memerlukan kuadrat dari jumlah semua selisih (<span class="math inline">\((\sum{D})^2\)</span>). Semua nilai tersebut dapat kita kerjakan sekaligus dengan menggunakan 1 tabel berikut:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-22">Table 3.2: </span>Selisih dan Kuadrat Selisih Data Sebelum dan Setelah 2 Minggu</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">7</th>
+<th align="center">8</th>
+<th align="center">9</th>
+<th align="center">10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">sebelum</td>
+<td align="center">201</td>
+<td align="center">198</td>
+<td align="center">216</td>
+<td align="center">210</td>
+<td align="center">215</td>
+<td align="center">196</td>
+<td align="center">204</td>
+<td align="center">209</td>
+<td align="center">187</td>
+<td align="center">193</td>
+</tr>
+<tr class="even">
+<td align="left">setelah</td>
+<td align="center">159</td>
+<td align="center">173</td>
+<td align="center">183</td>
+<td align="center">159</td>
+<td align="center">160</td>
+<td align="center">162</td>
+<td align="center">179</td>
+<td align="center">197</td>
+<td align="center">181</td>
+<td align="center">162</td>
+</tr>
+<tr class="odd">
+<td align="left">D</td>
+<td align="center">42</td>
+<td align="center">25</td>
+<td align="center">33</td>
+<td align="center">51</td>
+<td align="center">55</td>
+<td align="center">34</td>
+<td align="center">25</td>
+<td align="center">12</td>
+<td align="center">6</td>
+<td align="center">31</td>
+</tr>
+<tr class="even">
+<td align="left">D2</td>
+<td align="center">1764</td>
+<td align="center">625</td>
+<td align="center">1089</td>
+<td align="center">2601</td>
+<td align="center">3025</td>
+<td align="center">1156</td>
+<td align="center">625</td>
+<td align="center">144</td>
+<td align="center">36</td>
+<td align="center">961</td>
+</tr>
+</tbody>
+</table>
+<p><em>Langkah-langkah pengerjaan</em></p>
+<ol style="list-style-type: decimal">
+<li>Tentukan hipotesis pengujian:<br />
+<span class="math inline">\(H_0 : \mu_1 = \mu_2\)</span><br />
+<span class="math inline">\(H_1 : \mu_1 \neq \mu_2\)</span><br />
+dimana <span class="math inline">\(\mu_1\)</span> adalah rata-rata penurunan berat badan wanita di kota (populasi) dan <span class="math inline">\(\mu_2\)</span> adalah rata-rata penurunan berat badan wanita di desa (populasi)</li>
+<li>Hitung derajat kebebasan <span class="math inline">\(dk = n - 1 = 10 - 1 = 9\)</span>.</li>
+<li>Tentukan nilai <span class="math inline">\(t_{tabel}\)</span> dengan <span class="math inline">\(\alpha=0.05/2=0.025\)</span> dan <span class="math inline">\(dk = 9\)</span>, sehingga <span class="math inline">\(t_{(0.025,9)} = -2,2622\)</span> atau <span class="math inline">\(t_{(0.975,9)} = 2,2622\)</span>.</li>
+<li>Hitung nilai <span class="math inline">\(t_{hitung}\)</span> dengan menganggap bahwa <span class="math inline">\(\mu_1-\mu_2 = 0\)</span>, maka:<br />
+<span class="math display">\[
+t_{hitung} = \frac{(\bar{X_1}-\bar{X_2})}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}
+\]</span>
+<span class="math display">\[
+t_{hitung} = \frac{(3.4-5.6)}{\sqrt{\frac{1.07^2}{10}+\frac{0.7^2}{10}}} = -5.44
+\]</span></li>
+<li>Bandingkan <span class="math inline">\(t_{hitung}\)</span> dengan <span class="math inline">\(t_{tabel}\)</span> (karena <span class="math inline">\(t_{hitung}\)</span> negatif, maka bandingkan dengan nilai <span class="math inline">\(t_{tabel}\)</span> yang negatif juga, <span class="math inline">\(-5,44&lt;-2,2622\)</span>).</li>
+<li>Pengambilan keputusan: Tolak <span class="math inline">\(H_0\)</span> (karena <span class="math inline">\(t_{hitung}\)</span> lebih kecil dari <span class="math inline">\(t_{tabel}\)</span>).</li>
+</ol>
+<p>Sehingga dapat disimpulkan bahwa dengan menggunakan <span class="math inline">\(\alpha = 5\%\)</span> terdapat perbedaan penurunan berat badan pada wanita yang melakukan diet dengan menggunakan Metode Diet A di pedesaan dan perkotaan.</p>
 
+</div>
 </div>
 </div>
 </div>
