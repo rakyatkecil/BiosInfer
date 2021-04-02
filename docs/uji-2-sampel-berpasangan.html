@@ -24,7 +24,7 @@
 <meta name="author" content="dimas &amp; ulya" />
 
 
-<meta name="date" content="2021-04-01" />
+<meta name="date" content="2021-04-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -82,15 +82,22 @@
 <li class="chapter" data-level="2.2.3" data-path="uji2sampelind.html"><a href="uji2sampelind.html#uji-mann-whitney"><i class="fa fa-check"></i><b>2.2.3</b> Uji Mann Whitney</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="uji2sampelind.html"><a href="uji2sampelind.html#uji-dengan-spss"><i class="fa fa-check"></i><b>2.3</b> Uji dengan SPSS</a></li>
+<li class="chapter" data-level="2.4" data-path="uji2sampelind.html"><a href="uji2sampelind.html#uji-dengan-program-r"><i class="fa fa-check"></i><b>2.4</b> Uji dengan Program R</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="uji-2-sampel-berpasangan.html"><a href="uji-2-sampel-berpasangan.html"><i class="fa fa-check"></i><b>3</b> Uji 2 Sampel Berpasangan</a><ul>
 <li class="chapter" data-level="3.1" data-path="uji-2-sampel-berpasangan.html"><a href="uji-2-sampel-berpasangan.html#tujuan-1"><i class="fa fa-check"></i><b>3.1</b> Tujuan</a></li>
 <li class="chapter" data-level="3.2" data-path="uji-2-sampel-berpasangan.html"><a href="uji-2-sampel-berpasangan.html#dasar-teori-1"><i class="fa fa-check"></i><b>3.2</b> Dasar Teori</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="uji-2-sampel-berpasangan.html"><a href="uji-2-sampel-berpasangan.html#hipotesis-pengujian-1"><i class="fa fa-check"></i><b>3.2.1</b> Hipotesis Pengujian</a></li>
 <li class="chapter" data-level="3.2.2" data-path="uji-2-sampel-berpasangan.html"><a href="uji-2-sampel-berpasangan.html#uji-t-2-sampel-independen-1"><i class="fa fa-check"></i><b>3.2.2</b> Uji t 2 Sampel Independen</a></li>
+<li class="chapter" data-level="3.2.3" data-path="uji-2-sampel-berpasangan.html"><a href="uji-2-sampel-berpasangan.html#uji-wilcoxon"><i class="fa fa-check"></i><b>3.2.3</b> Uji Wilcoxon</a></li>
 </ul></li>
+<li class="chapter" data-level="3.3" data-path="uji-2-sampel-berpasangan.html"><a href="uji-2-sampel-berpasangan.html#uji-dengan-spss-1"><i class="fa fa-check"></i><b>3.3</b> Uji dengan SPSS</a></li>
+<li class="chapter" data-level="3.4" data-path="uji-2-sampel-berpasangan.html"><a href="uji-2-sampel-berpasangan.html#uji-dengan-program-r-1"><i class="fa fa-check"></i><b>3.4</b> Uji dengan Program R</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="uji-anova.html"><a href="uji-anova.html"><i class="fa fa-check"></i><b>4</b> Uji Anova</a></li>
+<li class="chapter" data-level="4" data-path="uji-anova.html"><a href="uji-anova.html"><i class="fa fa-check"></i><b>4</b> Uji Anova</a><ul>
+<li class="chapter" data-level="4.1" data-path="uji-anova.html"><a href="uji-anova.html#tujuan-2"><i class="fa fa-check"></i><b>4.1</b> Tujuan</a></li>
+<li class="chapter" data-level="4.2" data-path="uji-anova.html"><a href="uji-anova.html#dasar-teori-2"><i class="fa fa-check"></i><b>4.2</b> Dasar Teori</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="uji-korelasi.html"><a href="uji-korelasi.html"><i class="fa fa-check"></i><b>5</b> Uji Korelasi</a><ul>
 <li class="chapter" data-level="5.1" data-path="uji-korelasi.html"><a href="uji-korelasi.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
 <li class="chapter" data-level="5.2" data-path="uji-korelasi.html"><a href="uji-korelasi.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
@@ -335,16 +342,93 @@ n\sum{D}=10 \times 314=3140
 <p><span class="math display">\[
 s_D=\sqrt{\frac{n\sum{D^2}-(\sum{D})^2}{n(n-1)}}=\sqrt{\frac{120260-98596}{10 \times (10-1)}}=15,51487
 \]</span>
-6. Hitung nilai <span class="math inline">\(t_{hitung}\)</span><br />
+7. Hitung nilai <span class="math inline">\(t_{hitung}\)</span><br />
 <span class="math display">\[
 t=\frac{\bar{D}-\mu_D}{s_D / \sqrt{n}}=\frac{31,4}{15,51487 / \sqrt{10}}=6,40
 \]</span>
-7. Bandingkan <span class="math inline">\(t_{hitung}\)</span> dengan <span class="math inline">\(t_{tabel}\)</span> (karena <span class="math inline">\(t_{hitung}\)</span> positif, maka bandingkan dengan nilai <span class="math inline">\(t_{tabel}\)</span> yang postifi juga, <span class="math inline">\(6,40&gt;2,2622\)</span>).
-6. Pengambilan keputusan: Tolak <span class="math inline">\(H_0\)</span> (karena <span class="math inline">\(t_{hitung}\)</span> lebih kecil dari <span class="math inline">\(t_{tabel}\)</span>).</p>
+8. Bandingkan <span class="math inline">\(t_{hitung}\)</span> dengan <span class="math inline">\(t_{tabel}\)</span> (karena <span class="math inline">\(t_{hitung}\)</span> positif, maka bandingkan dengan nilai <span class="math inline">\(t_{tabel}\)</span> yang postifi juga, <span class="math inline">\(6,40&gt;2,2622\)</span>).
+9. Pengambilan keputusan: Tolak <span class="math inline">\(H_0\)</span> (karena <span class="math inline">\(t_{hitung}\)</span> lebih kecil dari <span class="math inline">\(t_{tabel}\)</span>).</p>
 <p>Sehingga dapat disimpulkan bahwa dengan menggunakan <span class="math inline">\(\alpha = 5\%\)</span> terdapat perbedaan kadar kolesterol setelah secara rutin mengkonsumsi habatus sauda selama 2 minggu.</p>
+</div>
+</div>
+<div id="uji-wilcoxon" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Uji Wilcoxon</h3>
+<p>Uji Wilcoxon merupakan pengujian yang dapat dijadikan alternatif dari uji t sampel berpasangan apabila asumsi kenormalan data tidak terpenuhi. Seperti halnya pengujian non-parametrik lainnya, Uji Wilcoxon tidak memerlukan asumsi normalitas dan dapat digunakan pada data yang berskala ordinal. Para literatur lain, uji ini memiliki nama <strong><em>Wilcoxon Signed-Rank Test</em></strong>. <span class="citation">(Bluman <a href="#ref-allan18" role="doc-biblioref">2018</a>)</span></p>
+<p>Asumsi-asumsi yang harus dipenuhi untuk melakukan pengujian dengan menggunakan Uji Wilcoxon ialah sebagai berikut:</p>
+<ol style="list-style-type: decimal">
+<li>Sampel diambil secara acak,</li>
+<li>Bentuk dan sebaran data antara kedua kelompok yang berpasangan adalah simetris.</li>
+</ol>
+<p>Terdapat 2 cara penentuan nilai uji pada Uji Wilcoxon (<span class="math inline">\(w\)</span>) yang bergantung pada jumlah sampelnya. Berikut adalah angkah-langkah dalam menentukan nilai uji pada Uji Wilcoxon:</p>
+<ol style="list-style-type: decimal">
+<li>Hitung selisih dari data sebelum dan setelah (notasi <span class="math inline">\(D\)</span>),</li>
+<li>Hitung nlai mutlak dari <span class="math inline">\(D\)</span> (notasi <span class="math inline">\(|D|\)</span>),</li>
+<li>Beri peringkat pada hasil dari <span class="math inline">\(|D|\)</span>. Apabila terdapat nilai yang sama, maka peringkat yang digunkan adalah rata-rata peringkat pada nilai tersebut,</li>
+<li>Beri tanda negatif (<span class="math inline">\(-\)</span>) pada peringkat yang memiliki nilai <span class="math inline">\(D\)</span> negatif dan tanda positif (<span class="math inline">\(+\)</span>) pada peringkat yang memiliki nilai <span class="math inline">\(D\)</span> positif,</li>
+<li>Jumlahkan semua peringkat yang negatif (<span class="math inline">\(w_-\)</span>) dan semua peringkat yang positif (<span class="math inline">\(w_+\)</span>),</li>
+<li>Tentukan nilai uji (<span class="math inline">\(w_s\)</span>).</li>
+</ol>
+<p>Nilai yang paling kecil antara <span class="math inline">\(w_-\)</span> dan <span class="math inline">\(w_+\)</span> menjadi nilai <span class="math inline">\(w_s\)</span> (<span class="math inline">\(w_s=\min(w_+,w_-)\)</span>). Selanjutnya <span class="math inline">\(w_s\)</span> akan dibandingkan dengan nilai dari Tabel Wilcoxon. Namun apabila <span class="math inline">\(n \geq 30\)</span> maka nilai uji dapat didekati dengan distribusi normal (<span class="math inline">\(z\)</span>):
+<span class="math display">\[
+z=\frac{w_s-\frac{n(n+1)}{4}}{\sqrt{\frac{n(n+1)(2n+1)}{24}}}
+\]</span>
+dimana:</p>
+<ul>
+<li><span class="math inline">\(n\)</span> = jumlah jumlah pasangan yang tidak memiliki selisih = 0</li>
+<li><span class="math inline">\(w_s=\min(w_+,w_-)\)</span></li>
+</ul>
+<p><strong>Contoh</strong>
+Kepala Polisi Lalu Lintas menemukan bahwa sering terjadi kecelakaan pada ruas jalan XX. Tercatat banyak kecelakaan yang terjadi dalam 6 bulan terkahir. Hasil penyelidikan menemukan bahwa kecelakaan terjadi disebabkan oleh kondisi jalan yang licin selama musim hujan. Oleh karena itu dilakukan pemasangan beberapa polisi tidur guna mengurangi kecepatan kendaraan yang melintasi ruas jalan tersebut. Alhasil didapatkan kecelakaan yang mulai menurun pada 6 bulan selanjutnya. Namun Kepala Polisi Lalu Lintas ingin mengetahui apakah penurunan kecelakaan tersebut cukup signifikan dalam mengurangi kecelakaan. Ujilan dengan menggunakan <span class="math inline">\(\alpha=0.05\)</span>.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-23">Table 3.3: </span>Jumlah Kecelakaan Setiap Bulan Sebelum dan Setelah Pemasangan Polisi Tidur</caption>
+<thead>
+<tr class="header">
+<th align="center">bulan.ke.</th>
+<th align="center">sebelum.pemasangan</th>
+<th align="center">setelah.pemasangan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">7</td>
+<td align="center">6</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">17</td>
+<td align="center">13</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">6</td>
+<td align="center">8</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">10</td>
+<td align="center">10</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">13</td>
+<td align="center">7</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">13</td>
+<td align="center">10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="uji-dengan-spss-1" class="section level2">
+<h2><span class="header-section-number">3.3</span> Uji dengan SPSS</h2>
+</div>
+<div id="uji-dengan-program-r-1" class="section level2">
+<h2><span class="header-section-number">3.4</span> Uji dengan Program R</h2>
 
-</div>
-</div>
 </div>
 </div>
 <h3>References</h3>

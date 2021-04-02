@@ -252,7 +252,7 @@ $H_1 : \mu_D \neq 0$
 $$
 \bar{D}=\frac{\sum{D}}{n}=\frac{42+25+33+51+55+34+25+12+6+31}{10}=31,4
 $$
-5. Hitung nilai $s_D$
+6. Hitung nilai $s_D$
 $$
 s_D=\sqrt{\frac{n\sum{D^2}-(\sum{D})^2}{n(n-1)}}
 $$
@@ -265,11 +265,82 @@ $$
 $$
 s_D=\sqrt{\frac{n\sum{D^2}-(\sum{D})^2}{n(n-1)}}=\sqrt{\frac{120260-98596}{10 \times (10-1)}}=15,51487
 $$
-6. Hitung nilai $t_{hitung}$  
+7. Hitung nilai $t_{hitung}$  
 $$
 t=\frac{\bar{D}-\mu_D}{s_D / \sqrt{n}}=\frac{31,4}{15,51487 / \sqrt{10}}=6,40
 $$
-7. Bandingkan $t_{hitung}$ dengan $t_{tabel}$ (karena $t_{hitung}$ positif, maka bandingkan dengan nilai $t_{tabel}$ yang postifi juga, $6,40>2,2622$).
-6. Pengambilan keputusan: Tolak $H_0$ (karena $t_{hitung}$ lebih kecil dari $t_{tabel}$).
+8. Bandingkan $t_{hitung}$ dengan $t_{tabel}$ (karena $t_{hitung}$ positif, maka bandingkan dengan nilai $t_{tabel}$ yang postifi juga, $6,40>2,2622$).
+9. Pengambilan keputusan: Tolak $H_0$ (karena $t_{hitung}$ lebih kecil dari $t_{tabel}$).
 
 Sehingga dapat disimpulkan bahwa dengan menggunakan $\alpha = 5\%$ terdapat perbedaan kadar kolesterol setelah secara rutin mengkonsumsi habatus sauda selama 2 minggu.
+
+### Uji Wilcoxon 
+Uji Wilcoxon merupakan pengujian yang dapat dijadikan alternatif dari uji t sampel berpasangan apabila asumsi kenormalan data tidak terpenuhi. Seperti halnya pengujian non-parametrik lainnya, Uji Wilcoxon tidak memerlukan asumsi normalitas dan dapat digunakan pada data yang berskala ordinal. Para literatur lain, uji ini memiliki nama **_Wilcoxon Signed-Rank Test_**. [@allan18]
+
+Asumsi-asumsi yang harus dipenuhi untuk melakukan pengujian dengan menggunakan Uji Wilcoxon ialah sebagai berikut:
+
+1. Sampel diambil secara acak,
+2. Bentuk dan sebaran data antara kedua kelompok yang berpasangan adalah simetris.
+
+Terdapat 2 cara penentuan nilai uji pada Uji Wilcoxon ($w$) yang bergantung pada jumlah sampelnya. Berikut adalah angkah-langkah dalam menentukan nilai uji pada Uji Wilcoxon:
+
+1. Hitung selisih dari data sebelum dan setelah (notasi $D$),
+2. Hitung nlai mutlak dari $D$ (notasi $|D|$),
+3. Beri peringkat pada hasil dari $|D|$. Apabila terdapat nilai yang sama, maka peringkat yang digunkan adalah rata-rata peringkat pada nilai tersebut,
+4. Beri tanda negatif ($-$) pada peringkat yang memiliki nilai $D$ negatif dan tanda positif ($+$) pada peringkat yang memiliki nilai $D$ positif,
+5. Jumlahkan semua peringkat yang negatif ($w_-$) dan semua peringkat yang positif ($w_+$),
+6. Tentukan nilai uji ($w_s$).
+
+Nilai yang paling kecil antara $w_-$ dan $w_+$ menjadi nilai $w_s$ ($w_s=\min(w_+,w_-)$). Selanjutnya $w_s$ akan dibandingkan dengan nilai dari Tabel Wilcoxon. Namun apabila $n \geq 30$ maka nilai uji dapat didekati dengan distribusi normal ($z$):
+$$
+z=\frac{w_s-\frac{n(n+1)}{4}}{\sqrt{\frac{n(n+1)(2n+1)}{24}}}
+$$
+dimana:
+
+- $n$ = jumlah jumlah pasangan yang tidak memiliki selisih = 0
+- $w_s=\min(w_+,w_-)$
+
+
+**Contoh**
+Kepala Polisi Lalu Lintas menemukan bahwa sering terjadi kecelakaan pada ruas jalan XX. Tercatat banyak kecelakaan yang terjadi dalam 6 bulan terkahir. Hasil penyelidikan menemukan bahwa kecelakaan terjadi disebabkan oleh kondisi jalan yang licin selama musim hujan. Oleh karena itu dilakukan pemasangan beberapa polisi tidur guna mengurangi kecepatan kendaraan yang melintasi ruas jalan tersebut. Alhasil didapatkan kecelakaan yang mulai menurun pada 6 bulan selanjutnya. Namun Kepala Polisi Lalu Lintas ingin mengetahui apakah penurunan kecelakaan tersebut cukup signifikan dalam mengurangi kecelakaan. Ujilan dengan menggunakan $\alpha=0.05$.
+
+```{r, echo=FALSE}
+set.seed(342)
+bulan = c(1:6)
+sebelum = rpois(6,9)
+setelah = rpois(6,7)
+dataxxxx = data.frame("bulan ke-"=bulan,
+                      "sebelum pemasangan"=sebelum,
+                      "setelah pemasangan"=setelah)
+
+knitr::kable(
+  dataxxxx, align = "c",
+  caption = "Jumlah Kecelakaan Setiap Bulan Sebelum dan Setelah Pemasangan Polisi Tidur"
+)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Uji dengan SPSS
+
+
+## Uji dengan Program R
+
+
+
+
+
+
+
+
+

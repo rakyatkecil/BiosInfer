@@ -1,3 +1,18 @@
 # Uji Anova
 
-We describe our methods in this chapter.
+
+## Tujuan
+
+- Mahasiswa mampu memahami konsep dasar pengujian 2 sampel independen
+- Mahasiswa mampu melakukan pengujian 2 sampel independen secara manual
+- Mahasiswa mampu melakukan pengujian 2 sampel independen menggunakan aplikasi pengolah data SPSS dan R
+
+
+## Dasar Teori
+sebelumnya telah kita bahas tentang pengujian pada data yang saling bebas. Namun terkadang peneliti ini mengetahui apakah terdapat perbedaan hasil pada pada data setelah mendapatkan perlakuan tertentu. Peneliti akan mencatat/mengukur kondisi objek sebelum dan setelah mendapatkan perlakukan. Sehingga kini peneliti memiliki 2 kelompok data yaitu data sebelum dan setelah perlakuan. Data jenis ini lebih sering disebut dengan sampel berpasangan (_paired/matched samples_). Terkadang pada rujukan lain kita akan menemukan istilah yang berbeda, seperti _dependent samples_ [@allan18]. 
+
+Berikut ini adalah contoh kasus 2 sampel berpasangan:
+
+- Seorang guru ingin mengatahui apakah terdapat peningkatan nilai matematika siswa kelas X apabila mendapatkan pembelajaran dengan menggunakan media video.
+- Seorang peneliti ingin menguji apakah terdapat penurunan tekanan darah pada wanita lanjut usia (lansia) apabila tidak mengkonsumsi makanan yang mengandung penyedap rasa dalam waktu 2 minggu.
+- Kelapa Program Studi Ilmu Gizi FKM XX melakukan penelitian terhadap daya terima konsumen pada cilok yang telah mendapatkan tembahan tepung teri dalam proses pembuatannya. Pertama-tama kaprodi memberikan cilok yang biasa dijual kepada panelis, lalu setelah itu panelis membersikan mulutnya dan mencoba cilok yang telah dimodifikasi. Selanjutnya akan dilakukan pengujuan terhadap hasil pendataan tersebut. 
