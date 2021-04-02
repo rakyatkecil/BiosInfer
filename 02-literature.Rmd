@@ -284,10 +284,27 @@ Asumsi-asumsi yang harus dipenuhi untuk melakukan pengujian dengan menggunakan U
 
 Terdapat 2 cara penentuan nilai uji pada Uji Wilcoxon ($w$) yang bergantung pada jumlah sampelnya. Berikut adalah angkah-langkah dalam menentukan nilai uji pada Uji Wilcoxon:
 
-1. Hitung selisih dari data sebelum dan setelah (notasi $D$),
-2. Hitung nlai mutlak dari $D$ (notasi $|D|$),
-3. Beri peringkat pada hasil dari $|D|$. Apabila terdapat nilai yang sama, maka peringkat yang digunkan adalah rata-rata peringkat pada nilai tersebut,
-4. Beri tanda negatif ($-$) pada peringkat yang memiliki nilai $D$ negatif dan tanda positif ($+$) pada peringkat yang memiliki nilai $D$ positif,
+1. Tentukan hipotesis pengujian,
+2. Hitung derajat kebebasan,
+3. Tentukan nilai kritikal dengan $\alpha$ dan $dk$, sehingga nilai kritikal = ,
+4. Membuat tabel bantu perhitungan.
+    1. Hitung selisih dari data sebelum dan setelah (notasi $D$),
+    2. Hitung nilai mutlak dari $D$ (notasi $|D|$),
+    3. Beri peringkat pada hasil dari $|D|$. Apabila terdapat nilai yang sama, maka peringkat yang digunkan adalah rata-rata peringkat pada nilai tersebut,
+    4. Beri tanda negatif ($-$) pada peringkat yang memiliki nilai $D$ negatif dan tanda positif ($+$) pada peringkat yang memiliki nilai $D$ positif.
+```{r, echo=F}
+xxx <- data.frame(sebelum=c("...", "...", "..."),
+                  sebelum=c("...", "...", "..."),
+                  D=c("...", "...", "..."),
+                  absD=c("...", "...", "..."),
+                  rank=c(1:3),
+                  PosNegRank=c("...", "...", "..."))
+
+knitr::kable(
+  xxx, align = "c",
+  caption = "Tabel Bantu Uji Wilcoxon"
+)
+```
 5. Jumlahkan semua peringkat yang negatif ($w_-$) dan semua peringkat yang positif ($w_+$),
 6. Tentukan nilai uji ($w_s$).
 
@@ -305,10 +322,10 @@ dimana:
 Kepala Polisi Lalu Lintas menemukan bahwa sering terjadi kecelakaan pada ruas jalan XX. Tercatat banyak kecelakaan yang terjadi dalam 6 bulan terkahir. Hasil penyelidikan menemukan bahwa kecelakaan terjadi disebabkan oleh kondisi jalan yang licin selama musim hujan. Oleh karena itu dilakukan pemasangan beberapa polisi tidur guna mengurangi kecepatan kendaraan yang melintasi ruas jalan tersebut. Alhasil didapatkan kecelakaan yang mulai menurun pada 6 bulan selanjutnya. Namun Kepala Polisi Lalu Lintas ingin mengetahui apakah penurunan kecelakaan tersebut cukup signifikan dalam mengurangi kecelakaan. Ujilan dengan menggunakan $\alpha=0.05$.
 
 ```{r, echo=FALSE}
-set.seed(342)
+set.seed(31)
 bulan = c(1:6)
 sebelum = rpois(6,9)
-setelah = rpois(6,7)
+setelah = rpois(6,8)
 dataxxxx = data.frame("bulan ke-"=bulan,
                       "sebelum pemasangan"=sebelum,
                       "setelah pemasangan"=setelah)
@@ -319,11 +336,38 @@ knitr::kable(
 )
 ```
 
+**Jawab**
 
+_Langkah Pengerjaan_
 
+1. Tentukan hipotesis pengujian,
+$H_0 : \mu_D = 0$  
+$H_1 : \mu_D \neq 0$  
+2. Hitung derajat kebebasan $dk=10-1=9$,
+3. Tentukan nilai kritikal dengan $\alpha=0,05$ dan $dk=9$, sehingga nilai kritikal = ,
+4. Membuat tabel bantu perhitungan.
+```{r, echo=F}
+set.seed(31)
+bulan = c(1:6)
+sebelum = rpois(6,9)
+setelah = rpois(6,8)
+dataxxxx = data.frame("bulan ke-"=bulan,
+                      sebelum=sebelum,
+                      setelah=setelah,
+                      D = sebelum-setelah,
+                      absD = abs(sebelum-setelah),
+                      rank = c(1.5, 6, 4, 1.5, 5, 3),
+                      NegPosRank = c(-1.5, 6, -4, 1.5, 5, -3))
 
-
-
+knitr::kable(
+  dataxxxx, align = "c",
+  caption = "Tabel Bantu Perhitungan Uji Wilcoxon"
+)
+```
+5. $w_-=8.5$ dan $w_+=12.5$,
+6. Nilai uji, $w_s=w_-=8.5$.
+7. Karena $n<30$, maka pengujian dilakukan dengan memmbandingkan $w_s$ dengan nilai kritis, yaitu ....
+8. Keputusan: Tolak $H_0$ bila $w_s>\text{nilai kritis}$.
 
 
 

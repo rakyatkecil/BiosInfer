@@ -361,10 +361,57 @@ t=\frac{\bar{D}-\mu_D}{s_D / \sqrt{n}}=\frac{31,4}{15,51487 / \sqrt{10}}=6,40
 </ol>
 <p>Terdapat 2 cara penentuan nilai uji pada Uji Wilcoxon (<span class="math inline">\(w\)</span>) yang bergantung pada jumlah sampelnya. Berikut adalah angkah-langkah dalam menentukan nilai uji pada Uji Wilcoxon:</p>
 <ol style="list-style-type: decimal">
+<li>Tentukan hipotesis pengujian,</li>
+<li>Hitung derajat kebebasan,</li>
+<li>Tentukan nilai kritikal dengan <span class="math inline">\(\alpha\)</span> dan <span class="math inline">\(dk\)</span>, sehingga nilai kritikal = ,</li>
+<li>Membuat tabel bantu perhitungan.
+<ol style="list-style-type: decimal">
 <li>Hitung selisih dari data sebelum dan setelah (notasi <span class="math inline">\(D\)</span>),</li>
-<li>Hitung nlai mutlak dari <span class="math inline">\(D\)</span> (notasi <span class="math inline">\(|D|\)</span>),</li>
+<li>Hitung nilai mutlak dari <span class="math inline">\(D\)</span> (notasi <span class="math inline">\(|D|\)</span>),</li>
 <li>Beri peringkat pada hasil dari <span class="math inline">\(|D|\)</span>. Apabila terdapat nilai yang sama, maka peringkat yang digunkan adalah rata-rata peringkat pada nilai tersebut,</li>
-<li>Beri tanda negatif (<span class="math inline">\(-\)</span>) pada peringkat yang memiliki nilai <span class="math inline">\(D\)</span> negatif dan tanda positif (<span class="math inline">\(+\)</span>) pada peringkat yang memiliki nilai <span class="math inline">\(D\)</span> positif,</li>
+<li>Beri tanda negatif (<span class="math inline">\(-\)</span>) pada peringkat yang memiliki nilai <span class="math inline">\(D\)</span> negatif dan tanda positif (<span class="math inline">\(+\)</span>) pada peringkat yang memiliki nilai <span class="math inline">\(D\)</span> positif.</li>
+</ol></li>
+</ol>
+<table>
+<caption><span id="tab:unnamed-chunk-23">Table 3.3: </span>Tabel Bantu Uji Wilcoxon</caption>
+<thead>
+<tr class="header">
+<th align="center">sebelum</th>
+<th align="center">sebelum.1</th>
+<th align="center">D</th>
+<th align="center">absD</th>
+<th align="center">rank</th>
+<th align="center">PosNegRank</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">1</td>
+<td align="center">…</td>
+</tr>
+<tr class="even">
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">2</td>
+<td align="center">…</td>
+</tr>
+<tr class="odd">
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">3</td>
+<td align="center">…</td>
+</tr>
+</tbody>
+</table>
+<ol start="5" style="list-style-type: decimal">
 <li>Jumlahkan semua peringkat yang negatif (<span class="math inline">\(w_-\)</span>) dan semua peringkat yang positif (<span class="math inline">\(w_+\)</span>),</li>
 <li>Tentukan nilai uji (<span class="math inline">\(w_s\)</span>).</li>
 </ol>
@@ -380,7 +427,7 @@ dimana:</p>
 <p><strong>Contoh</strong>
 Kepala Polisi Lalu Lintas menemukan bahwa sering terjadi kecelakaan pada ruas jalan XX. Tercatat banyak kecelakaan yang terjadi dalam 6 bulan terkahir. Hasil penyelidikan menemukan bahwa kecelakaan terjadi disebabkan oleh kondisi jalan yang licin selama musim hujan. Oleh karena itu dilakukan pemasangan beberapa polisi tidur guna mengurangi kecepatan kendaraan yang melintasi ruas jalan tersebut. Alhasil didapatkan kecelakaan yang mulai menurun pada 6 bulan selanjutnya. Namun Kepala Polisi Lalu Lintas ingin mengetahui apakah penurunan kecelakaan tersebut cukup signifikan dalam mengurangi kecelakaan. Ujilan dengan menggunakan <span class="math inline">\(\alpha=0.05\)</span>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-23">Table 3.3: </span>Jumlah Kecelakaan Setiap Bulan Sebelum dan Setelah Pemasangan Polisi Tidur</caption>
+<caption><span id="tab:unnamed-chunk-24">Table 3.4: </span>Jumlah Kecelakaan Setiap Bulan Sebelum dan Setelah Pemasangan Polisi Tidur</caption>
 <thead>
 <tr class="header">
 <th align="center">bulan.ke.</th>
@@ -391,36 +438,121 @@ Kepala Polisi Lalu Lintas menemukan bahwa sering terjadi kecelakaan pada ruas ja
 <tbody>
 <tr class="odd">
 <td align="center">1</td>
-<td align="center">7</td>
-<td align="center">6</td>
+<td align="center">9</td>
+<td align="center">11</td>
 </tr>
 <tr class="even">
 <td align="center">2</td>
-<td align="center">17</td>
-<td align="center">13</td>
+<td align="center">14</td>
+<td align="center">5</td>
 </tr>
 <tr class="odd">
 <td align="center">3</td>
-<td align="center">6</td>
 <td align="center">8</td>
+<td align="center">12</td>
 </tr>
 <tr class="even">
 <td align="center">4</td>
-<td align="center">10</td>
-<td align="center">10</td>
+<td align="center">8</td>
+<td align="center">6</td>
 </tr>
 <tr class="odd">
 <td align="center">5</td>
-<td align="center">13</td>
+<td align="center">14</td>
 <td align="center">7</td>
 </tr>
 <tr class="even">
 <td align="center">6</td>
-<td align="center">13</td>
-<td align="center">10</td>
+<td align="center">8</td>
+<td align="center">11</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Jawab</strong></p>
+<p><em>Langkah Pengerjaan</em></p>
+<ol style="list-style-type: decimal">
+<li>Tentukan hipotesis pengujian,
+<span class="math inline">\(H_0 : \mu_D = 0\)</span><br />
+<span class="math inline">\(H_1 : \mu_D \neq 0\)</span><br />
+</li>
+<li>Hitung derajat kebebasan <span class="math inline">\(dk=10-1=9\)</span>,</li>
+<li>Tentukan nilai kritikal dengan <span class="math inline">\(\alpha=0,05\)</span> dan <span class="math inline">\(dk=9\)</span>, sehingga nilai kritikal = ,</li>
+<li>Membuat tabel bantu perhitungan.</li>
+</ol>
+<table>
+<caption><span id="tab:unnamed-chunk-25">Table 3.5: </span>Tabel Bantu Perhitungan Uji Wilcoxon</caption>
+<thead>
+<tr class="header">
+<th align="center">bulan.ke.</th>
+<th align="center">sebelum</th>
+<th align="center">setelah</th>
+<th align="center">D</th>
+<th align="center">absD</th>
+<th align="center">rank</th>
+<th align="center">NegPosRank</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">9</td>
+<td align="center">11</td>
+<td align="center">-2</td>
+<td align="center">2</td>
+<td align="center">1.5</td>
+<td align="center">-1.5</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">14</td>
+<td align="center">5</td>
+<td align="center">9</td>
+<td align="center">9</td>
+<td align="center">6.0</td>
+<td align="center">6.0</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">8</td>
+<td align="center">12</td>
+<td align="center">-4</td>
+<td align="center">4</td>
+<td align="center">4.0</td>
+<td align="center">-4.0</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">8</td>
+<td align="center">6</td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">1.5</td>
+<td align="center">1.5</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">14</td>
+<td align="center">7</td>
+<td align="center">7</td>
+<td align="center">7</td>
+<td align="center">5.0</td>
+<td align="center">5.0</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">8</td>
+<td align="center">11</td>
+<td align="center">-3</td>
+<td align="center">3</td>
+<td align="center">3.0</td>
+<td align="center">-3.0</td>
+</tr>
+</tbody>
+</table>
+<ol start="5" style="list-style-type: decimal">
+<li><span class="math inline">\(w_-=8.5\)</span> dan <span class="math inline">\(w_+=12.5\)</span>,</li>
+<li>Nilai uji, <span class="math inline">\(w_s=w_-=8.5\)</span>.</li>
+</ol>
 </div>
 </div>
 <div id="uji-dengan-spss-1" class="section level2">
